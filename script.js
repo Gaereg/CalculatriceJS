@@ -18,6 +18,7 @@ function init(){
    window.tabOperateur = [];
    window.nombre = '';
    window.result = 0;
+   window.t = 1;
    window.affichage = document.getElementById('resultat');
 
 
@@ -72,18 +73,27 @@ function afficheCalculette(tab1){
 }
 
 function afficheOperation(valeur){
-   affichage.innerHTML += valeur;
-   nombre += valeur;
+   if(valeur != '.'){
+      affichage.innerHTML += valeur;
+      nombre += valeur;
+      t = 0;
+   } else if (valeur == '.' && t == 0){
+      affichage.innerHTML += valeur;
+      nombre += valeur;
+      t = 1;
+   }
+
 }
 
 function operateur(valeur){
-   console.log(affichage.length)
-   if(true){
+   var stri = affichage.innerHTML;
+   if(t == 0){
       tabValeur.push(parseFloat(nombre));
       nombre = '';
       if(valeur != '='){
          tabOperateur.push(valeur);
          affichage.innerHTML += valeur;
+         t = 1;
       }
    }
 }
