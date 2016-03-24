@@ -86,7 +86,6 @@ function afficheOperation(valeur){
 }
 
 function operateur(valeur){
-   var stri = affichage.innerHTML;
    if(t == 0){
       tabValeur.push(parseFloat(nombre));
       nombre = '';
